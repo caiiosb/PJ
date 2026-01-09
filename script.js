@@ -1,5 +1,6 @@
 
         document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
             const senha = document.getElementById('senha');
             const confirmarSenha = document.getElementById('confirmarSenha');
             const senhaError = document.getElementById('senhaError');
@@ -21,11 +22,11 @@
             } else {
                 confirmarSenhaError.style.display = 'none';
             }
-
-            if (hasError) {
-                event.preventDefault(); // Impede o envio do formulário se houver erros
-            } else {
-                alert('Formulário enviado com sucesso!');
+            alert('Formulário enviado com sucesso!');
+            if (!hasError) {
+                
+                window.location.href = 'home.html'; // Redireciona para a página de login
             }
+            
         });
     
